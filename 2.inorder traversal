@@ -1,0 +1,21 @@
+iterative traverasal
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ans=new ArrayList<>();
+        f(root,ans);
+        return ans;
+    }
+    public void f(TreeNode root,List<Integer> ans){
+        if(root==null){
+            return;
+        }
+        
+        f(root.left,ans);
+        ans.add(root.val);
+        f(root.right,ans);
+    }
+}
+tc-->O(N)
+sc-->O(N)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
