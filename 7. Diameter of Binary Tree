@@ -1,0 +1,61 @@
+class Solution {
+    public int diameterOfBinaryTree(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        int[] ans=new int[1];
+        f(root,ans);
+        return ans[0];
+    }
+    public void f(TreeNode root,int[] ans){
+        if(root==null){
+            return;
+        }
+        int lh=h(root.left);
+        int rh=h(root.right);
+        ans[0]=Math.max(lh+rh,ans[0]);
+        f(root.left,ans);
+        f(root.right,ans);
+
+    }
+    public int h(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int lh=h(root.left);
+        int rh=h(root.right);
+        return Math.max(lh,rh)+1;
+        
+    }
+}
+
+Metric	Value
+Time Complexity	-->O(N²) (worst)
+Space Complexity	-->O(H) (→ O(N) worst, O(log N) best)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Solution {
+    public int diameterOfBinaryTree(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        int[] ans=new int[1];
+        h(root,ans);
+        return ans[0];
+    }
+    public int h(TreeNode root,int[] ans){
+        if(root==null){
+            return 0;
+        }
+        int lh=h(root.left,ans);
+        int rh=h(root.right,ans);
+        ans[0]=Math.max(ans[0],lh+rh);
+        
+        return Math.max(lh,rh)+1;
+        
+    }
+}
+
+tc-->o(n);
+sc-->o(n);
