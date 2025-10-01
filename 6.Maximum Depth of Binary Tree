@@ -1,0 +1,15 @@
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root==null) return 0;
+        return f(root);
+        
+    }
+    public int f(TreeNode root){
+        if(root==null) return 0;
+        return Math.max(f(root.left),f(root.right))+1;
+    }
+}
+
+
+tc-->o(n)
+sc-->o(h)
